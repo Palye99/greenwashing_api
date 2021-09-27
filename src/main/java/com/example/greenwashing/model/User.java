@@ -2,6 +2,8 @@ package com.example.greenwashing.model;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -15,6 +17,11 @@ public class User {
     private String email;
 
     private ProfileEnum profileEnum;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Marker> markers = new HashSet<>();
+
+
 
     public Integer getId() {
         return id;
@@ -46,5 +53,13 @@ public class User {
 
     public void setProfileEnum(ProfileEnum profileEnum) {
         this.profileEnum = profileEnum;
+    }
+
+    public Set<Marker> getMarkers() {
+        return markers;
+    }
+
+    public void setMarkers(Set<Marker> markers) {
+        this.markers = markers;
     }
 }

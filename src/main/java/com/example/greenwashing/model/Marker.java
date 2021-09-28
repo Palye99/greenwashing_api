@@ -1,6 +1,7 @@
 package com.example.greenwashing.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "marker")
@@ -18,6 +19,10 @@ public class Marker {
     private String lng;
 
     private StatutEnum statutEnum;
+
+    private TypeEnum typeEnum;
+
+    private LocalDate dateCreation;
 
     @OneToOne(mappedBy = "marker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
@@ -79,5 +84,37 @@ public class Marker {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public StatutEnum getStatutEnum() {
+        return statutEnum;
+    }
+
+    public void setStatutEnum(StatutEnum statutEnum) {
+        this.statutEnum = statutEnum;
+    }
+
+    public TypeEnum getTypeEnum() {
+        return typeEnum;
+    }
+
+    public void setTypeEnum(TypeEnum typeEnum) {
+        this.typeEnum = typeEnum;
+    }
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
     }
 }

@@ -22,6 +22,6 @@ public class MapService {
     }
 
     public List<Marker> allMarker() {
-        return this.markerRepository.getAllByStatutEnumNot(StatutEnum.DONE);
+        return this.markerRepository.findAll();
     }
 }

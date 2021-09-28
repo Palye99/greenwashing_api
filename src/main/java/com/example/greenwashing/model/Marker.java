@@ -1,5 +1,7 @@
 package com.example.greenwashing.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -27,9 +29,11 @@ public class Marker {
     @OneToOne(mappedBy = "marker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Image image;
 
+    @JsonIgnore
     @ManyToOne
     private User user;
 
+    @JsonIgnore
     @ManyToOne
     private Park park;
 

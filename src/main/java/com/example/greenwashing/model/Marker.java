@@ -30,6 +30,9 @@ public class Marker {
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    private Park park;
+
     public Integer getId() {
         return id;
     }
@@ -116,5 +119,13 @@ public class Marker {
 
     public void setDateCreation(LocalDate dateCreation) {
         this.dateCreation = dateCreation;
+    }
+
+    public Park getPark() {
+        return park;
+    }
+
+    public void setPark(Park park) {
+        this.park = park;
     }
 }

@@ -1,6 +1,8 @@
 package com.example.greenwashing.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "park")
@@ -15,6 +17,9 @@ public class Park {
     private String lat;
 
     private String lng;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Marker> markers = new HashSet<>();
 
     public int getId() {
         return id;
@@ -46,5 +51,13 @@ public class Park {
 
     public void setLng(String lng) {
         this.lng = lng;
+    }
+
+    public Set<Marker> getMarkers() {
+        return markers;
+    }
+
+    public void setMarkers(Set<Marker> markers) {
+        this.markers = markers;
     }
 }

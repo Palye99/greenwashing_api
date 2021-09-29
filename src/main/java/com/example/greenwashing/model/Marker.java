@@ -53,14 +53,6 @@ public class Marker {
         this.name = name;
     }
 
-    public String getDesciption() {
-        return description;
-    }
-
-    public void setDesciption(String description) {
-        this.description = description;
-    }
-
     public String getLat() {
         return lat;
     }

@@ -16,7 +16,7 @@ public class MapService {
         this.markerRepository = markerRepository;
     }
 
-    public boolean addMarker(Marker marker) {
+    public boolean saveMarker(Marker marker) {
         this.markerRepository.save(marker);
         return true;
     }

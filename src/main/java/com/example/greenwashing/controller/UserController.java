@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("api/user")
 public class UserController {
 
@@ -18,7 +19,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @CrossOrigin()
     @PostMapping(value ="/register")
     public ResponseEntity<Boolean> addUser(@RequestBody User user) {
         return Optional
@@ -27,7 +27,6 @@ public class UserController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @CrossOrigin()
     @GetMapping(value ="/getUserWithEmail/{email}")
     public ResponseEntity<User> getUserWithEmail(@PathVariable String email) {
         return Optional

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("api/map")
 public class MapController {
 
@@ -19,16 +20,14 @@ public class MapController {
         this.mapService = mapService;
     }
 
-    @CrossOrigin()
-    @PostMapping(value ="/addMarker")
-    public ResponseEntity<Boolean>addMarker(@RequestBody Marker marker) {
+    @PostMapping(value ="/saveMarker")
+    public ResponseEntity<Boolean>updateMarker(@RequestBody Marker marker) {
         return Optional
-                .ofNullable(this.mapService.addMarker(marker))
+                .ofNullable(this.mapService.saveMarker(marker))
                 .map(list -> ResponseEntity.ok().body(list))          //200 OK
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @CrossOrigin()
     @GetMapping(value ="/allMarker")
     public ResponseEntity<List<Marker>>allMarker() {
         return Optional

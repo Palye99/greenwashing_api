@@ -1,5 +1,7 @@
 package com.example.greenwashing.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,6 +20,7 @@ public class Park {
 
     private String lng;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private Set<Marker> markers = new HashSet<>();
 
